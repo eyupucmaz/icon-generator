@@ -14,5 +14,5 @@ export function cn(...classLists: ClassValue[]): string {
         );
     }
     const mergedClasses = twMerge(clsx(...classLists)) as unknown as ClassNameValue[];
-    return mergedClasses.join(" ");
+    return mergedClasses as unknown as string;
 }
