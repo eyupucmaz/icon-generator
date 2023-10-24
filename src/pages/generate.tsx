@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import FormGroup from "~/components/FormGroup";
 import Input from "~/components/Input";
+import { api } from "~/utils/api";
 import { cn } from "~/utils/cn";
 import updateForm from "~/utils/updateForm";
 
@@ -15,10 +16,18 @@ const GeneratePage: NextPage = () => {
     prompt: "",
   });
 
+  const generateIcon = api.generate.generateIcon.useMutation({
+    onSuccess(data) {
+      console.log("🚀 ~ file: generate.tsx:19 ~ generateIcon.useMutation ~ onSuccess", data);
+    },
+  });
+
   function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    console.log("🚀 ~ file: generate.tsx:22 ~ handleFormSubmit ~ form:", form);
+    generateIcon.mutate({
+      prompt: form.prompt as string,
+    });
   }
 
   return (
