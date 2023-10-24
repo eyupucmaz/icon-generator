@@ -12,7 +12,7 @@ type SetForm = Dispatch<SetStateAction<FormState>>;
  * @param setForm - The state setter function for the form state.
  * @returns A function that updates the form state with the new value of the input field.
  */
-export default function updateForm(
+export function updateForm(
   key: string,
   setForm: SetForm
 ): (e: React.ChangeEvent<HTMLInputElement>) => void {

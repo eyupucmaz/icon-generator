@@ -1,6 +1,6 @@
-import { cn } from "~/utils/cn";
+import { cn } from "~/utils";
 
-const Input = (props: React.ComponentPropsWithoutRef<"input">) => {
+export default function BaseInput(props: React.ComponentPropsWithoutRef<"input">) {
   return (
     <input
       {...props}
@@ -10,6 +10,4 @@ const Input = (props: React.ComponentPropsWithoutRef<"input">) => {
       )}
     ></input>
   );
-};
-
-export default Input;
+}
